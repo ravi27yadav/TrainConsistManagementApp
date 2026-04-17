@@ -1,21 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * ============================================================
- * MAIN CLASS - PassengerBogieManager
+ * MAIN CLASS - UniqueBogieTracker
  * ============================================================
  *
- * Use Case 2: Add Passenger Bogies to Train
+ * Use Case 3: Track Unique Bogie IDs using HashSet
  *
  * Description:
- * This program demonstrates dynamic operations on train bogies
- * using ArrayList such as add, remove, and search.
+ * This program ensures that duplicate bogie IDs are not added
+ * to the train using HashSet.
  *
  * Concepts Used:
- * - ArrayList
- * - add(), remove(), contains()
- * - CRUD operations
+ * - Set Interface
+ * - HashSet
+ * - Uniqueness (No duplicates allowed)
  *
  * @author Ravi Yadav
  * @version 1.0
@@ -25,31 +25,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Create ArrayList for passenger bogies
-        List<String> bogies = new ArrayList<>();
+        // Create HashSet for bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // Add bogies
-        bogies.add("Sleeper");
-        bogies.add("AC Chair");
-        bogies.add("First Class");
+        // Add bogie IDs (including duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        // Display after adding
-        System.out.println("Bogies after addition:");
-        System.out.println(bogies);
+        // Display unique bogie IDs
+        System.out.println("Unique Bogie IDs:");
+        System.out.println(bogieIds);
 
-        // Remove a bogie
-        bogies.remove("AC Chair");
-
-        System.out.println("\nAfter removing AC Chair:");
-        System.out.println(bogies);
-
-        // Check existence
-        boolean exists = bogies.contains("Sleeper");
-
-        System.out.println("\nIs Sleeper present? " + exists);
-
-        // Final state
-        System.out.println("\nFinal Train Consist:");
-        System.out.println(bogies);
+        // Display total count
+        System.out.println("\nTotal Unique Bogies: " + bogieIds.size());
     }
 }
